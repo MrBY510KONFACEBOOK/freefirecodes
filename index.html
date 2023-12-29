@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Codes Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #codes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .code {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Codes Generator</h1>
+    <div id="codes"></div>
+
+    <script>
+        function generateRandomCode(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let randomCode = '';
+            for (let i = 0; i < length; i++) {
+                randomCode += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return randomCode;
+        }
+
+        const numCodes = 100;
+        const codesContainer = document.getElementById('codes');
+
+        for (let i = 0; i < numCodes; i++) {
+            const code = generateRandomCode(14);
+            const codeElement = document.createElement('div');
+            codeElement.classList.add('code');
+            codeElement.textContent = code;
+            codesContainer.appendChild(codeElement);
+        }
+    </script>
+</body>
+</html>
